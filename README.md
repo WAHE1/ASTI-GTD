@@ -1,6 +1,6 @@
 # ASTI-GTD
 
-linkedMSC.py
+## linkedMSC.py
 Given a guide tree, a gene tree is simulated within a species tree.
 Arguments:
 
