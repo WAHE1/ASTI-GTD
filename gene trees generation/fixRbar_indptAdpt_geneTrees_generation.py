@@ -79,7 +79,6 @@ gene_trees = dendropy.TreeList()
 # generate the 0th independent gene tree
 gene_tree = dendropy.model.coalescent.contained_coalescent_tree(containing_tree=species_tree,
                                                                  gene_to_containing_taxon_map=gene_to_species_map)
-gene_tree.is_rooted = False
 gene_trees.append(gene_tree)
 
 # sample x numbers from 1 to N-1 without replacement and sort out from smallest to largest
@@ -97,13 +96,11 @@ for i in range(1,N):
     if i == next_indpt:
         gene_tree = dendropy.model.coalescent.contained_coalescent_tree(containing_tree=species_tree,
                                                                  gene_to_containing_taxon_map=gene_to_species_map)
-        gene_tree.is_rooted = False
         gene_trees.append(gene_tree)
         next_indpt = numbers.pop(0)
     else:
         guide_tree = gene_tree
         gene_tree = linkedMSC.multispecies_linked_coalescent(species_tree, guide_tree, recombination_rate=recomb, pop_size = 1)
-        gene_tree.is_rooted = False
         gene_trees.append(gene_tree)
 
 gene_trees.write(path=outp,schema='newick')
