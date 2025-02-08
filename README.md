@@ -5,7 +5,7 @@ Given a guide tree, a gene tree is simulated within a species tree.
 ### An example:
 ```
 import linkedMSC
-gene_tee = linkedMSC.multispecies_linked_coalescent(species_tree, guide_tree, recombination_rate)
+gene_tree = linkedMSC.multispecies_linked_coalescent(species_tree, guide_tree, recombination_rate)
 ```
 
 ## dependent_gene_trees_generation.py
